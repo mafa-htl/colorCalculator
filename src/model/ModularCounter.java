@@ -1,5 +1,5 @@
 /**class ModularCounter
- * @version 1.2, 21.01.2021
+ * @version 1.3, 21.01.2021
  */
 
 package model;
