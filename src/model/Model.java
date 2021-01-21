@@ -1,6 +1,6 @@
 /**class Model
  * @author Matteo Falkenberg
- * @version 1.5, 21.01.2021
+ * @version 1.6, 21.01.2021
  */
 
 package model;
@@ -21,23 +21,7 @@ public class Model {
     public void changeColorViaAbsoluteValue(ColorCode cc, String value){
         int valInt = Integer.parseInt(value);
 
-        if(cc.equals(ColorCode.RED)){
-            red.reset();
-            red.inc(valInt);
-            System.out.println("value: " + valInt + "\ncolValue: " + getRed());
-        }
-
-        else if(cc.equals(ColorCode.GREEN)){
-            green.reset();
-            green.inc(valInt);
-        }
-
-        else if(cc.equals(ColorCode.BLUE)){
-            blue.reset();
-            blue.inc(valInt);
-        }
-
-        else System.out.println("Ungültiger ColorCode");
+        changeColorViaAbsoluteValue(cc, valInt);
     }
 
     public void changeColorViaAbsoluteValue(ColorCode cc, int value){
@@ -64,57 +48,70 @@ public class Model {
     public void changeColorViaRelativeValue(ColorCode cc, String value){
         int valInt = Integer.parseInt(value);
 
-        if(cc.equals(ColorCode.RED)){
-            if(red.getValue() + valInt > 255) {
-                valInt = red.getValue() + valInt - 255;
-                red.reset();
-            }
-            red.inc(valInt);
-        }
-
-        else if(cc.equals(ColorCode.GREEN)){
-            if(green.getValue() + valInt > 255) {
-                valInt = green.getValue() + valInt - 255;
-                green.reset();
-            }
-            green.inc(valInt);
-        }
-
-        else if(cc.equals(ColorCode.BLUE)){
-            if(blue.getValue() + valInt > 255) {
-                valInt = blue.getValue() + valInt - 255;
-                blue.reset();
-            }
-            blue.inc(valInt);
-        }
-
-        else System.out.println("Ungültiger ColorCode");
+        changeColorViaRelativeValue(cc, valInt);
     }
 
     public void changeColorViaRelativeValue(ColorCode cc, int value){
 
         if(cc.equals(ColorCode.RED)){
-            if(red.getValue() + value > 255) {
-                value = red.getValue() + value - 255;
-                red.reset();
+            if(value > 0) {
+                if (red.getValue() + value > 255) {    //if value of red goes over 255 add rest from 0
+                    value = red.getValue() + value - 255;
+                    red.reset();
+                    red.inc(value);
+                }
+                red.inc(value);
             }
-            red.inc(value);
+            else if(value < 0) {
+                value = value * (-1);
+                if (red.getValue() - value < 0) {  //if value of red goes beneath 0 decrease rest from 255
+                    value = red.getValue() - value + 255;
+                    red.reset();
+                    red.inc();
+                }
+                red.dec(value);
+            }
+
         }
 
         else if(cc.equals(ColorCode.GREEN)){
-            if(green.getValue() + value > 255) {
-                value = green.getValue() + value - 255;
-                green.reset();
+            if(value > 0) {
+                if (green.getValue() + value > 255) {    //if value of green goes over 255 add rest from 0
+                    value = green.getValue() + value - 255;
+                    green.reset();
+                    green.inc(value);
+                }
+                green.inc(value);
             }
-            green.inc(value);
+            else if(value < 0) {
+                value = value * (-1);
+                if (green.getValue() - value < 0) {  //if value of green goes beneath 0 decrease rest from 255
+                    value = green.getValue() - value + 255;
+                    green.reset();
+                    green.inc();
+                }
+                green.dec(value);
+            }
         }
 
         else if(cc.equals(ColorCode.BLUE)){
-            if(blue.getValue() + value > 255) {
-                value = blue.getValue() + value - 255;
-                blue.reset();
+            if(value > 0) {
+                if (blue.getValue() + value > 255) {    //if value of green goes over 255 add rest from 0
+                    value = blue.getValue() + value - 255;
+                    blue.reset();
+                    blue.inc(value);
+                }
+                blue.inc(value);
             }
-            blue.inc(value);
+            else if(value < 0) {
+                value = value * (-1);
+                if (blue.getValue() - value < 0) {  //if value of green goes beneath 0 decrease rest from 255
+                    value = blue.getValue() - value + 255;
+                    blue.reset();
+                    blue.inc();
+                }
+                blue.dec(value);
+            }
         }
 
         else System.out.println("Ungültiger ColorCode");
