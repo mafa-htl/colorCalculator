@@ -1,6 +1,6 @@
 /**class Main
  * @author Matteo Falkenberg
- * @version 1.0, 21.01.2021
+ * @version 1.1, 21.01.2021
  */
 
 package main;
@@ -17,7 +17,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("/sample/sample.fxml"));
         primaryStage.setTitle("Color Calculator");
-        primaryStage.setScene(new Scene(root, 400, 300));
+        primaryStage.setScene(new Scene(root, 400, 350));
         primaryStage.show();
     }
 
