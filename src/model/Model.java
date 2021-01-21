@@ -1,6 +1,6 @@
 /**class Model
  * @author Matteo Falkenberg
- * @version 1.3, 21.01.2021
+ * @version 1.4, 21.01.2021
  */
 
 package model;
@@ -64,20 +64,26 @@ public class Model {
         int valInt = Integer.parseInt(value);
 
         if(cc.equals(ColorCode.RED)){
-            if(red.getValue() + valInt > 255)
+            if(red.getValue() + valInt > 255) {
                 valInt = red.getValue() + valInt - 255;
+                red.reset();
+            }
             red.inc(valInt);
         }
 
         else if(cc.equals(ColorCode.GREEN)){
-            if(green.getValue() + valInt > 255)
+            if(green.getValue() + valInt > 255) {
                 valInt = green.getValue() + valInt - 255;
+                green.reset();
+            }
             green.inc(valInt);
         }
 
         else if(cc.equals(ColorCode.BLUE)){
-            if(blue.getValue() + valInt > 255)
+            if(blue.getValue() + valInt > 255) {
                 valInt = blue.getValue() + valInt - 255;
+                blue.reset();
+            }
             blue.inc(valInt);
         }
 
@@ -87,20 +93,26 @@ public class Model {
     public void changeColorViaRelativeValue(ColorCode cc, int value){
 
         if(cc.equals(ColorCode.RED)){
-            if(red.getValue() + value > 255)
+            if(red.getValue() + value > 255) {
                 value = red.getValue() + value - 255;
+                red.reset();
+            }
             red.inc(value);
         }
 
         else if(cc.equals(ColorCode.GREEN)){
-            if(green.getValue() + value > 255)
+            if(green.getValue() + value > 255) {
                 value = green.getValue() + value - 255;
+                green.reset();
+            }
             green.inc(value);
         }
 
         else if(cc.equals(ColorCode.BLUE)){
-            if(blue.getValue() + value > 255)
+            if(blue.getValue() + value > 255) {
                 value = blue.getValue() + value - 255;
+                blue.reset();
+            }
             blue.inc(value);
         }
 
