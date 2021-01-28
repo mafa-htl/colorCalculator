@@ -1,6 +1,6 @@
 /**class Controller
  * @author Matteo Falkenberg
- * @version 1.9, 28.01.2021
+ * @version 2.0, 28.01.2021
  */
 
 package sample;

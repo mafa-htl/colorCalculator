@@ -1,6 +1,6 @@
 /**class Model
  * @author Matteo Falkenberg
- * @version 1.9, 28.01.2021
+ * @version 2.0, 28.01.2021
  */
 
 package model;
@@ -24,16 +24,21 @@ public class Model {
 
     public void loadFromFile(){
         String s;
+        String code = "Color File Format 1.0";
         int colNum = 0;
         try{
             FileReader fr = new FileReader("./saveFiles/colorValues.txt");
             BufferedReader br = new BufferedReader(fr);
             while((s = br.readLine()) != null){
-                if(colNum == 0)
-                    changeColorViaAbsoluteValue(ColorCode.RED, s);
+                if(colNum == 0){
+                    if(!s.equals(code))
+                        break;
+                }
                 else if(colNum == 1)
+                    changeColorViaAbsoluteValue(ColorCode.RED, s);
+                else if(colNum == 2)
                     changeColorViaAbsoluteValue(ColorCode.GREEN, s);
-                else if(colNum == 2) {
+                else if(colNum == 3) {
                     changeColorViaAbsoluteValue(ColorCode.BLUE, s);
                     break;
                 }
@@ -52,6 +57,8 @@ public class Model {
         try{
             FileWriter fw = new FileWriter("./saveFiles/colorValues.txt");
             BufferedWriter bw = new BufferedWriter(fw);
+            bw.write("Color File Format 1.0");
+            bw.newLine();
             bw.write("" + red.getValue());
             bw.newLine();
             bw.write("" + green.getValue());
