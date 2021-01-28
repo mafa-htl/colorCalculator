@@ -1,6 +1,6 @@
 /**class Controller
  * @author Matteo Falkenberg
- * @version 1.7, 21.01.2021
+ * @version 1.8, 28.01.2021
  */
 
 package sample;
@@ -41,6 +41,22 @@ public class Controller {
 
         colorBtn.setStyle("-fx-background-color: rgb(" + r + ", " + g + ", " + b + ");");
         hexLbl.setText("Hex: " + model.getHex());
+    }
+
+
+    @FXML
+    private void saveValues(){
+        model.saveToFile();
+    }
+
+
+    @FXML
+    private void loadValues(){
+        model.loadFromFile();
+        redField.setText("" + model.getRed());
+        greenField.setText("" + model.getGreen());
+        blueField.setText("" + model.getBlue());
+        changeBtnColor();
     }
 
 

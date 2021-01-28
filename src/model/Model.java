@@ -1,10 +1,14 @@
 /**class Model
  * @author Matteo Falkenberg
- * @version 1.7, 21.01.2021
+ * @version 1.8, 28.01.2021
  */
 
 package model;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.Scanner;
 
 public class Model {
@@ -15,6 +19,50 @@ public class Model {
 
     public Model(){
 
+    }
+
+
+    public void loadFromFile(){
+        String s;
+        int colNum = 0;
+        try{
+            FileReader fr = new FileReader("./saveFiles/colorValues.txt");
+            BufferedReader br = new BufferedReader(fr);
+            while((s = br.readLine()) != null){
+                if(colNum == 0)
+                    changeColorViaAbsoluteValue(ColorCode.RED, s);
+                else if(colNum == 1)
+                    changeColorViaAbsoluteValue(ColorCode.GREEN, s);
+                else if(colNum == 2) {
+                    changeColorViaAbsoluteValue(ColorCode.BLUE, s);
+                    break;
+                }
+                colNum++;
+            }
+            br.close();
+            fr.close();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+    public void saveToFile(){
+        try{
+            FileWriter fw = new FileWriter("./saveFiles/colorValues.txt");
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write("" + red.getValue());
+            bw.newLine();
+            bw.write("" + green.getValue());
+            bw.newLine();
+            bw.write("" + blue.getValue());
+            bw.close();
+            fw.close();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
@@ -41,7 +89,7 @@ public class Model {
             blue.inc(value);
         }
 
-        else System.out.println("Ungültige Eingabe");
+        else System.out.println("invalid input");
     }
 
 
@@ -120,7 +168,7 @@ public class Model {
             }
         }
 
-        else System.out.println("Ungültige Eingabe");
+        else System.out.println("invalid input");
     }
 
 

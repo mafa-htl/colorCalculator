@@ -34,18 +34,24 @@
                   <TextField fx:id="redField" onKeyTyped="#fieldInputR" prefHeight="45.0" prefWidth="95.0" text="0" GridPane.rowIndex="1" />
                   <TextField fx:id="greenField" onKeyTyped="#fieldInputG" prefHeight="45.0" prefWidth="95.0" text="0" GridPane.rowIndex="3" />
                   <TextField fx:id="blueField" onKeyTyped="#fieldInputB" prefHeight="45.0" prefWidth="95.0" text="0" GridPane.rowIndex="5" />
-                  <Button onMouseClicked="#valIncTenR" mnemonicParsing="false" prefHeight="45.0" prefWidth="95.0" text="+10" GridPane.columnIndex="1" />
-                  <Button onMouseClicked="#valDecTenR" mnemonicParsing="false" prefHeight="45.0" prefWidth="95.0" text="-10" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button onMouseClicked="#valIncTenG" mnemonicParsing="false" prefHeight="45.0" prefWidth="95.0" text="+10" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button onMouseClicked="#valDecTenG" mnemonicParsing="false" prefHeight="45.0" prefWidth="95.0" text="-10" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Button onMouseClicked="#valIncTenB" mnemonicParsing="false" prefHeight="45.0" prefWidth="95.0" text="+10" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <Button onMouseClicked="#valDecTenB" mnemonicParsing="false" prefHeight="45.0" prefWidth="95.0" text="-10" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Button mnemonicParsing="false" onMouseClicked="#valIncTenR" prefHeight="45.0" prefWidth="95.0" text="+10" GridPane.columnIndex="1" />
+                  <Button mnemonicParsing="false" onMouseClicked="#valDecTenR" prefHeight="45.0" prefWidth="95.0" text="-10" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onMouseClicked="#valIncTenG" prefHeight="45.0" prefWidth="95.0" text="+10" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" onMouseClicked="#valDecTenG" prefHeight="45.0" prefWidth="95.0" text="-10" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Button mnemonicParsing="false" onMouseClicked="#valIncTenB" prefHeight="45.0" prefWidth="95.0" text="+10" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Button mnemonicParsing="false" onMouseClicked="#valDecTenB" prefHeight="45.0" prefWidth="95.0" text="-10" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                </children>
             </GridPane>
             <VBox prefHeight="200.0" prefWidth="150.0" spacing="25.0">
                <children>
                   <Button fx:id="colorBtn" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" />
                   <Label fx:id="hexLbl" text="Hex: no values defined" />
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                     <children>
+                        <Button onMouseClicked="#loadValues" mnemonicParsing="false" prefHeight="45.0" prefWidth="95.0" text="Load" />
+                        <Button onMouseClicked="#saveValues" mnemonicParsing="false" prefHeight="45.0" prefWidth="95.0" text="Save" />
+                     </children>
+                  </VBox>
                </children>
             </VBox>
          </children>
