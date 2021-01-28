@@ -1,6 +1,6 @@
 /**class Controller
  * @author Matteo Falkenberg
- * @version 1.8, 28.01.2021
+ * @version 1.9, 28.01.2021
  */
 
 package sample;
@@ -67,7 +67,7 @@ public class Controller {
             changeBtnColor();
         }
         catch (Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
             System.out.println("invalid input");
         }
     }
@@ -79,7 +79,7 @@ public class Controller {
             changeBtnColor();
         }
         catch (Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
             System.out.println("invalid input");
         }
     }
@@ -91,7 +91,7 @@ public class Controller {
             changeBtnColor();
         }
         catch (Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
             System.out.println("invalid input");
         }
     }
